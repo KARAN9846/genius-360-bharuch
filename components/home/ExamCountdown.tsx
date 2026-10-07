@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { examInfo } from "@/data/exam";
+import { examInfo } from "../../data/exam";
 
 type CountdownValues = {
   days: number;
