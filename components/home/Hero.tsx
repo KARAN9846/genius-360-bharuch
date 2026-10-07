@@ -81,14 +81,14 @@ export default function Hero() {
         </div>
 
         {/* Hero artwork */}
-        <div className="relative order-1 mx-auto h-[190px] w-full sm:h-[280px] md:h-[320px] lg:order-2 lg:mt-0 lg:h-auto lg:min-h-[520px]">
+        <div className="relative order-1 mx-auto my-2 h-[190px] w-[calc(100%-1rem)] sm:my-0 sm:h-[280px] sm:w-full md:h-[320px] lg:order-2 lg:mt-0 lg:h-auto lg:min-h-[520px]">
           <Image
             src="/images/genius-360-hero.png"
             alt="Students representing Genius 360 degree Bharuch scholarship examination"
             fill
             priority
             sizes="(max-width: 639px) 100vw, (max-width: 1023px) 90vw, 55vw"
-            className="object-contain object-center lg:scale-[1.08]"
+            className="object-contain object-center p-3 sm:p-4 lg:p-0 lg:scale-[1.08]"
           />
         </div>
       </div>
