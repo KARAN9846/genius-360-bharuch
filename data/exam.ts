@@ -1,7 +1,7 @@
 export const examInfo = {
   name: "Genius 360 Bharuch",
 
-  positioning: "Bharuch's First Big Scholarship Exam",
+  positioning: "Registration Ends 31 Oct 2026",
 
   examDate: "2026-12-13T00:00:00+05:30",
 
@@ -22,24 +22,30 @@ export const examInfo = {
   examPattern: {
     totalMarks: 100,
     type: "MCQ",
+    duration: "2 hours",
+    mode: "Offline",
+  },
+
+  venue: "At designated Mahavir Classes centres across Bharuch",
+
+  registration: {
+    status: "open",
+    startDate: null,
+    lastDate: "2026-10-31T23:59:59+05:30",
+    fee: 200,
+    feeNote: "Non-refundable",
   },
 
   scholarship: {
     title: "Scholarships & Recognition for Top Performers",
   },
 
-  registration: {
-    status: "coming-soon",
-    startDate: null,
-    lastDate: null,
+  admitCard: {
+    title: "Admit Card / Hall Ticket",
+    date: "2026-12-09",
   },
 
-  additionalDetails: {
-    duration: null,
-    mode: null,
-    venue: null,
-    fee: null,
-    admitCard: null,
-    result: null,
+  result: {
+    date: "2026-12-25",
   },
 } as const;
