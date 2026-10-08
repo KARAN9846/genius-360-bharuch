@@ -138,8 +138,8 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-8 flex flex-col gap-3 border-t border-[#E4E7EC] pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-[#98A2B3]">
-            © {new Date().getFullYear()} Genius 360° by Mahavir Classes. All
-            rights reserved.
+            © {examInfo.examDate.slice(0, 4)} Genius 360° by Mahavir Classes.
+            All rights reserved.
           </p>
 
           <p className="text-xs font-medium text-[#667085]">
