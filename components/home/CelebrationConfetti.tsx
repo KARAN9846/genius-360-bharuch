@@ -191,6 +191,15 @@ export default function CelebrationConfetti() {
       }
     };
 
+    const handleResize = () => {
+      resize();
+
+      if (reducedMotion) {
+        fillParticles();
+        particles.forEach(drawParticle);
+      }
+    };
+
     const animate = (currentTime: number) => {
       const delta = Math.min((currentTime - lastTime) / 16.67, 2);
 
@@ -240,12 +249,12 @@ export default function CelebrationConfetti() {
       animationFrame = requestAnimationFrame(animate);
     }
 
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       cancelAnimationFrame(animationFrame);
 
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
