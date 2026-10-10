@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { examInfo } from "@/data/exam";
@@ -12,6 +13,7 @@ const navigation = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
@@ -39,15 +41,22 @@ export default function Navbar() {
           className="hidden items-center gap-7 lg:flex"
           aria-label="Main navigation"
         >
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-semibold text-slate-600 transition-colors hover:text-blue-700"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const isActive = pathname === item.href;
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`text-sm font-semibold transition-colors hover:text-blue-700 ${
+                  isActive ? "text-blue-700" : "text-slate-600"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Desktop CTA */}
@@ -83,16 +92,23 @@ export default function Navbar() {
             className="mx-auto flex max-w-7xl flex-col px-4 py-3 sm:px-6"
             aria-label="Mobile navigation"
           >
-            {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="border-b border-slate-100 py-3.5 text-sm font-semibold text-slate-700 transition-colors last:border-b-0 hover:text-blue-700"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const isActive = pathname === item.href;
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`border-b border-slate-100 py-3.5 text-sm font-semibold transition-colors last:border-b-0 hover:text-blue-700 ${
+                    isActive ? "text-blue-700" : "text-slate-700"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
 
             <Link
               href={examInfo.registrationUrl}
