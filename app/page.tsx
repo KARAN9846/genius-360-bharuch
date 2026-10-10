@@ -6,8 +6,9 @@ import CashPrizeSection from "@/components/home/CashPrizeSection";
 import ExamPattern from "@/components/home/ExamPattern";
 import ScholarshipRecognition from "@/components/home/ScholarshipRecognition";
 import HowItWorks from "@/components/home/HowItWorks";
-import FinalCTA from "@/components/home/FinalCTA";
-import Footer from "@/components/home/Footer";
+import FinalCTA from "@/components/layout/FinalCTA";
+import OfflineRegistrationLocation from "@/components/layout/OfflineRegistrationLocation";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <ScholarshipRecognition />
         <HowItWorks />
         <FinalCTA />
+        <OfflineRegistrationLocation />
         <Footer />
       </main>
     </>
