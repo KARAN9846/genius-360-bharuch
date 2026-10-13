@@ -1,3 +1,6 @@
+// Update this URL in GitHub when the study materials are published.
+export const studyMaterialsUrl = "";
+
 export const examInfo = {
   name: "Genius 360 Bharuch",
 

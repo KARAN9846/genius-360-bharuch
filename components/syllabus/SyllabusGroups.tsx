@@ -2,7 +2,7 @@
 
 import { BookOpen, Check, ChevronDown } from "lucide-react";
 import { useState } from "react";
-import { examInfo } from "@/data/exam";
+import { examInfo, studyMaterialsUrl } from "@/data/exam";
 import { syllabusGroups } from "@/data/syllabus";
 import SyllabusSubjectModal from "./SyllabusSubjectModal";
 
@@ -17,6 +17,15 @@ export default function SyllabusGroups() {
   const selectedGroup = syllabusGroups.find(
     (group) => group.id === activeGroup,
   );
+
+  const hasStudyMaterialsUrl = (() => {
+    try {
+      const url = new URL(studyMaterialsUrl);
+      return url.protocol === "https:" || url.protocol === "http:";
+    } catch {
+      return false;
+    }
+  })();
 
   const selectedSubject = selectedGroup?.subjects.find(
     (subject) => `${activeGroup}-${subject.id}` === openSubject,
@@ -157,20 +166,39 @@ export default function SyllabusGroups() {
                     {selectedGroup.preparingFor}
                   </h3>
 
-                  <div className="inline-flex w-fit max-w-full flex-nowrap items-center gap-1 whitespace-nowrap rounded-xl bg-red-600 px-2 py-2 text-sm font-medium text-white shadow-sm sm:gap-1.5 sm:px-5 sm:py-2.5">
-                    <BookOpen
-                      size={17}
-                      strokeWidth={2}
-                      aria-hidden="true"
-                      className="shrink-0 text-white"
-                    />
-                    <span className="min-w-0 font-semibold text-white">
-                      Study Materials
-                    </span>
-                    <span className="whitespace-nowrap text-[10px] font-bold uppercase tracking-wide text-white">
-                      Coming Soon
-                    </span>
-                  </div>
+                  {hasStudyMaterialsUrl ? (
+                    <a
+                      href={studyMaterialsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex w-fit max-w-full flex-nowrap items-center gap-1 whitespace-nowrap rounded-xl bg-red-600 px-2 py-2 text-sm font-medium text-white shadow-sm sm:gap-1.5 sm:px-5 sm:py-2.5"
+                    >
+                      <BookOpen
+                        size={17}
+                        strokeWidth={2}
+                        aria-hidden="true"
+                        className="shrink-0 text-white"
+                      />
+                      <span className="min-w-0 font-semibold text-white">
+                        Study Materials
+                      </span>
+                    </a>
+                  ) : (
+                    <div className="inline-flex w-fit max-w-full flex-nowrap items-center gap-1 whitespace-nowrap rounded-xl bg-red-600 px-2 py-2 text-sm font-medium text-white shadow-sm sm:gap-1.5 sm:px-5 sm:py-2.5">
+                      <BookOpen
+                        size={17}
+                        strokeWidth={2}
+                        aria-hidden="true"
+                        className="shrink-0 text-white"
+                      />
+                      <span className="min-w-0 font-semibold text-white">
+                        Study Materials
+                      </span>
+                      <span className="whitespace-nowrap text-[10px] font-bold uppercase tracking-wide text-white">
+                        Coming Soon
+                      </span>
+                    </div>
+                  )}
 
                   <p className="text-xs text-[#667085] md:col-span-2 lg:col-span-1 lg:justify-self-end lg:text-right">
                     Gujarati & English Medium • {examInfo.eligibility.boards.slice(0, 2).join(" ")} & {examInfo.eligibility.boards.slice(2).join(" & ")}
