@@ -11,7 +11,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Genius 360 Bharuch | Bharuch's First Big Scholarship Exam",
   description:
-    "Genius 360 Bharuch is a Junior Level Competitive Scholarship Exam for Std 5, 6 and 7 students from CBSE and GSEB, available in Gujarati and English Medium. Exam date: 13 December 2026.",
+    "Genius 360 Bharuch is a Junior Level Competitive Scholarship Exam open to Std 5, 6 and 7 students from Any Board, available in Gujarati and English Medium. Exam date: 13 December 2026.",
 };
 
 export default function RootLayout({

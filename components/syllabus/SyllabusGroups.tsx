@@ -2,6 +2,7 @@
 
 import { BookOpen, Check, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { examInfo } from "@/data/exam";
 import { syllabusGroups } from "@/data/syllabus";
 import SyllabusSubjectModal from "./SyllabusSubjectModal";
 
@@ -172,7 +173,7 @@ export default function SyllabusGroups() {
                   </div>
 
                   <p className="text-xs text-[#667085] md:col-span-2 lg:col-span-1 lg:justify-self-end lg:text-right">
-                    CBSE & GSEB • Gujarati & English Medium
+                    Gujarati & English Medium • {examInfo.eligibility.boards.slice(0, 2).join(" ")} & {examInfo.eligibility.boards.slice(2).join(" & ")}
                   </p>
                 </div>
               </div>

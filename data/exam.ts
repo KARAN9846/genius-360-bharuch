@@ -15,7 +15,7 @@ export const examInfo = {
 
   eligibility: {
     standards: ["Std 5", "Std 6", "Std 7"],
-    boards: ["CBSE", "GSEB"],
+    boards: ["CBSE", "GSEB", "Any Board"],
     mediums: ["English", "Gujarati"],
   },
 
